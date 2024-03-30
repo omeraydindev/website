@@ -1,0 +1,27 @@
+:root {
+  --accent-color: #2187ab;
+  --link-color: #0085ac;
+}
+
+* {
+  font-family: "Noto Sans Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+          "wdth" 100;
+}
+
+a {
+  color: var(--link-color);
+}
+
+h1 {
+  font-weight: 500;
+  margin-bottom: 0.35em;
+}
+
+h2 {
+  font-weight: 500;
+  margin-bottom: 0.35em;
+}
+

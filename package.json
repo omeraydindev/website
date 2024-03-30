@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "deploy": "$npm_execpath run build && wrangler pages deploy dist"
+  },
+  "dependencies": {
+    "@hono/vite-ssg": "^0.1.0",
+    "hono": "^4.1.1"
+  },
+  "devDependencies": {
+    "@hono/vite-dev-server": "^0.9.0",
+    "@types/bun": "^1.0.8",
+    "front-matter": "^4.0.2",
+    "marked": "^12.0.1",
+    "prettier": "^3.2.5",
+    "shiki": "^1.2.0",
+    "vite": "^5.0.12",
+    "wrangler": "^3.32.0",
+    "zod": "^3.22.4"
+  }
+}
