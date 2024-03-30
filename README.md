@@ -13,11 +13,6 @@ To build the website:
 bun run build
 ```
 
-To deploy with wrangler (WIP):
-```shell
-bun run deploy
-```
-
 ### Credits
 
 The tech stack was heavily inspired by [stordahl.dev](https://github.com/stordahl/stordahldotdev).
