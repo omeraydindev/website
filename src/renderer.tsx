@@ -4,6 +4,11 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Main } from "./components/Main";
 
+const versionFile = (() => {
+  const date = new Date().getTime();
+  return (file: string) => file + (import.meta.env.PROD ? `?v=${date}` : "");
+})();
+
 export const renderer = jsxRenderer(({ children, title, description }) => {
   return (
     <html>
@@ -25,7 +30,7 @@ export const renderer = jsxRenderer(({ children, title, description }) => {
           rel="stylesheet"
         />
         <link href="/static/reset.css" rel="stylesheet" />
-        <link href="/static/style.css" rel="stylesheet" />
+        <link href={versionFile("/static/style.css")} rel="stylesheet" />
         <Style />
         <title>{title} - Ömer Aydın</title>
         {description && <meta name="description" content={description} />}
