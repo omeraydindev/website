@@ -8,10 +8,10 @@ export async function Home() {
   return (
     <>
       <div class={sTitleContainer}>
-        <h1 class={sTitle}>Hi, I'm Ömer</h1>
+        <h1 class={sTitle}>Hi! I'm Ömer</h1>
         <p>
-          I am a full-stack developer based in 🇹🇷. I love to build things and a
-          sucker for learning new things.
+          I am a full-stack developer based in 🇹🇷. I love to build,
+          reverse-engineer, and break things.
         </p>
         <br></br>
         <Socials />
@@ -34,8 +34,8 @@ const sTitle = css`
 `;
 
 const sTitleContainer = css`
-  margin-top: 3em;
-  margin-bottom: 2em;
+  margin-top: 2em;
+  margin-bottom: 3em;
 `;
 
 const sBlogContainer = css`

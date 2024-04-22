@@ -1,14 +1,35 @@
 :root {
   --accent-color: #2187ab;
   --link-color: #0085ac;
+  --bg-color: #fefefe;
+  --title-text-color: #000;
+  --body-text-color: #202020;
+  --misc-text-color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000;
+    --title-text-color: #fff;
+    --body-text-color: #e5e5e5;
+    --misc-text-color: #999;
+  }
 }
 
 * {
   font-family: "Noto Sans Mono", monospace;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings:
-          "wdth" 100;
+  font-variation-settings: "wdth" 100;
+}
+
+html {
+  background-color: var(--bg-color);
+  color: var(--title-text-color);
+}
+
+p {
+  color: var(--body-text-color);
 }
 
 a {
@@ -24,4 +45,3 @@ h2 {
   font-weight: 500;
   margin-bottom: 0.35em;
 }
-

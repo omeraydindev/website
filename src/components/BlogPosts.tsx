@@ -1,5 +1,6 @@
 import { PostWithId } from "../../data.types";
 import { css } from "hono/css";
+import { formatBlogDate } from "../utils/date";
 
 export async function BlogPosts({ posts }: { posts: PostWithId[] }) {
   return (
@@ -10,7 +11,7 @@ export async function BlogPosts({ posts }: { posts: PostWithId[] }) {
             <a class={sPostAnchor} href={`/blog/${id}`}>
               {title}
             </a>
-            <p>{date}</p>
+            <p class={sPostDate}>{formatBlogDate(date)}</p>
           </li>
         ))}
       </ul>
@@ -34,4 +35,10 @@ const sPostAnchor = css`
   &:hover {
     text-decoration: underline;
   }
+`;
+
+const sPostDate = css`
+  color: var(--misc-text-color);
+  margin-top: 0.2em;
+  font-size: 0.95em;
 `;

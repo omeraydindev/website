@@ -12,12 +12,15 @@ import {
 import { BlogPost, BlogPostMeta } from "./pages/blogPost";
 import { Blog, BlogMeta } from "./pages/blog";
 import { Category, CategoryMeta } from "./pages/category";
+import { Contact, ContactMeta } from "./pages/contact";
 
 const app = new Hono();
 
 app.use(renderer);
 
 app.get("/", ({ render }) => render(<Home />, HomeMeta));
+
+app.get("/contact", ({ render }) => render(<Contact />, ContactMeta));
 
 app.get("/blog", ({ render }) => render(<Blog />, BlogMeta));
 

@@ -1,17 +1,12 @@
 import { raw } from "hono/html";
 import { css } from "hono/css";
 import { PostWithContent } from "../../data.types";
+import { formatBlogDate } from "../utils/date";
 
 export async function BlogPost({ post }: { post: PostWithContent }) {
-  const publishDate = new Date(post.date).toLocaleDateString("en", {
-    month: "long",
-    day: "2-digit",
-    year: "numeric",
-  });
-
   return (
     <>
-      <strong class={sPublished}>{publishDate}</strong>
+      <strong class={sPublished}>{formatBlogDate(post.date)}</strong>
       <h1 class={sTitle}>{post.title}</h1>
       <article class={sArticle}>{raw(post.content)}</article>
       <div class={sCategories}>
@@ -37,7 +32,7 @@ export const BlogPostMeta = (post: PostWithContent) => ({
 });
 
 const sPublished = css`
-  color: #666;
+  color: var(--misc-text-color);
 `;
 
 const sTitle = css`
@@ -46,12 +41,12 @@ const sTitle = css`
 `;
 
 const sCategories = css`
-  color: #666;
+  color: var(--misc-text-color);
   margin-top: 3em;
 `;
 
 const sCategory = css`
-  color: #666;
+  color: var(--misc-text-color);
   display: inline-block;
 
   a {
@@ -74,13 +69,13 @@ const sArticle = css`
   }
 
   h2 {
-    margin-top: 1em;
-    margin-bottom: 0.5em;
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
   }
 
   p {
     margin-top: 0;
-    margin-bottom: 1.5em;
+    margin-bottom: 1.75em;
   }
 
   h2 + p {
@@ -109,7 +104,7 @@ const sArticle = css`
     }
     figcaption {
       font-size: 0.8em;
-      color: #666;
+      color: var(--misc-text-color);
       margin-bottom: 2.5em;
 
       em {

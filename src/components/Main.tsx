@@ -7,6 +7,6 @@ export function Main({ children }: { children?: Child | undefined }) {
 
 const sMain = css`
   padding: 1rem;
-  margin: auto;
+  margin: 2em auto;
   width: clamp(300px, calc(85vw + 5px), 750px);
 `;
