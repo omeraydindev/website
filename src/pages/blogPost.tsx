@@ -88,7 +88,7 @@ const sArticle = css`
   }
 
   blockquote {
-    border-left-color: #e2e2e2;
+    border-left-color: var(--divider-color);
     border-left-width: 1px;
     border-left-style: solid;
     padding-left: 1.5em;
@@ -115,7 +115,7 @@ const sArticle = css`
 
   hr {
     border: none;
-    border-top: 1px solid #e2e2e2;
+    border-top: 1px solid var(--divider-color);
     margin-top: 2.5em;
     margin-bottom: 2.5em;
   }
@@ -125,5 +125,11 @@ const sArticle = css`
     border-radius: 8px;
     margin-bottom: 1.2em;
     overflow-x: auto;
+  }
+
+  *:not(pre) code {
+    background-color: var(--bg-neutral-color);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
   }
 `;

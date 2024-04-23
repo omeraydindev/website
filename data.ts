@@ -111,15 +111,15 @@ function parseMarkdown(markdown: string) {
 
 async function highlightCode(html: string) {
   const highlighter = await getHighlighter({
-    themes: ["github-dark", "github-light"],
-    langs: ["javascript", "typescript", "html", "shell"],
+    themes: ["github-dark"],
+    langs: ["javascript", "typescript", "html", "shell", "php"],
   });
   const codeBlockRegex =
     /<pre><code class="language-(.*?)">([\s\S]*?)<\/code><\/pre>/g;
   return html.replace(codeBlockRegex, (_, language, code) =>
     highlighter.codeToHtml(code, {
       lang: language,
-      theme: "github-light",
+      theme: "github-dark",
     }),
   );
 }

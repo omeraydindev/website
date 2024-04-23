@@ -5,6 +5,8 @@
   --title-text-color: #000;
   --body-text-color: #202020;
   --misc-text-color: #666;
+  --bg-neutral-color: #f5f7f9;
+  --divider-color: #e0e0e0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +15,8 @@
     --title-text-color: #fff;
     --body-text-color: #e5e5e5;
     --misc-text-color: #999;
+    --bg-neutral-color: #212121;
+    --divider-color: #333;
   }
 }
 
@@ -21,6 +25,10 @@
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+}
+
+em {
+  font-style: italic;
 }
 
 html {
