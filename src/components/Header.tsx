@@ -21,9 +21,9 @@ const sHeader = css`
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  padding: 1.9rem 1rem;
+  padding: 1.9rem 0;
   margin: auto;
-  width: clamp(380px, calc(85vw + 5px), 750px);
+  width: clamp(300px, calc(85vw + 5px), 750px);
   gap: 8px;
 `;
 

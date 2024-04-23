@@ -34,8 +34,8 @@ const sTitle = css`
 `;
 
 const sTitleContainer = css`
-  margin-top: 2em;
-  margin-bottom: 3em;
+  margin-top: 4em;
+  margin-bottom: 4em;
 `;
 
 const sBlogContainer = css`

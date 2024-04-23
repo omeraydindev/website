@@ -12,6 +12,6 @@ export function Footer() {
 
 const sFooter = css`
   text-align: center;
-  margin-top: 5vh;
+  margin-top: 10vh;
   margin-bottom: 7vh;
 `;

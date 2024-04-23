@@ -25,7 +25,7 @@ const sPostsList = css`
 `;
 
 const sPostListItem = css`
-  margin-bottom: 16px;
+  margin-bottom: 1em;
 `;
 
 const sPostAnchor = css`

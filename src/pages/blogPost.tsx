@@ -121,9 +121,9 @@ const sArticle = css`
   }
 
   pre {
-    padding: 20px;
+    padding: 1.2em;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 1.2em;
     overflow-x: auto;
   }
 `;

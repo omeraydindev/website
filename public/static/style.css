@@ -41,7 +41,19 @@ h1 {
   margin-bottom: 0.35em;
 }
 
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
 h2 {
   font-weight: 500;
   margin-bottom: 0.35em;
+}
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 1.3em;
+  }
 }

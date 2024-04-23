@@ -23,5 +23,5 @@ const sCenteredContainer = css`
 `;
 
 const sGif = css`
-  margin-top: 20px;
+  margin-top: 1.2em;
 `;
