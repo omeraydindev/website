@@ -4,7 +4,7 @@ export function Socials() {
   const socials = [
     {
       title: "Twitter",
-      url: "https://twitter.com/MikeAndersonKt",
+      url: "https://twitter.com/omeraydindev",
       avatarUrl: "https://abs.twimg.com/favicons/twitter.2.ico",
     },
     {
