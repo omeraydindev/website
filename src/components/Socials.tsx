@@ -9,7 +9,7 @@ export function Socials() {
     },
     {
       title: "GitHub",
-      url: "https://github.com/MikeAndrson",
+      url: "https://github.com/omeraydindev",
     },
     {
       title: "LinkedIn",
