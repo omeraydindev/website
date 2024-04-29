@@ -107,7 +107,7 @@ const sArticle = css`
       color: var(--misc-text-color);
       margin-bottom: 2.5em;
 
-      em {
+      em * {
         font-style: italic;
       }
     }
