@@ -63,6 +63,7 @@ const sCategorySeparator = css`
 const sArticle = css`
   margin-top: 1.5em;
   line-height: 1.6;
+  text-align: justify;
 
   a {
     color: var(--link-color);
@@ -85,6 +86,11 @@ const sArticle = css`
   p:has(> img) {
     margin-top: 2em;
     margin-bottom: 2.5em;
+  }
+
+  ul {
+    margin-top: 0;
+    margin-bottom: 1.75em;
   }
 
   blockquote {

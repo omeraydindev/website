@@ -12,11 +12,27 @@
     "title": "Java"
   },
   {
+    "id": "javascript",
+    "title": "JavaScript"
+  },
+  {
     "id": "reverse-engineering",
     "title": "Reverse Engineering"
   },
   {
     "id": "php",
     "title": "PHP"
+  },
+  {
+    "id": "turkce",
+    "title": "Türkçe"
+  },
+  {
+    "id": "typescript",
+    "title": "TypeScript"
+  },
+  {
+    "id": "web",
+    "title": "Web"
   }
 ]

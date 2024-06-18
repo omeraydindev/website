@@ -65,3 +65,33 @@ h2 {
     font-size: 1.3em;
   }
 }
+
+.heading-container {
+  position: relative;
+
+  &:hover .heading-anchor {
+    display: flex;
+  }
+}
+
+.heading-anchor {
+  position: absolute;
+  top: 50%;
+  left: -28px;
+  display: none;
+  width: 28px;
+  height: 28px;
+  padding-right: 5px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(calc(-50%));
+}
+
+.heading-link-icon {
+  color: var(--misc-text-color);
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
