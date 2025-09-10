@@ -1,6 +1,6 @@
 # omeraydin.dev
 
-This is my personal static website, using [Bun](https://bun.sh) and [Hono](https://hono.dev). It's a work in progress.
+This is my personal static website, using [Bun](https://bun.sh) and [Hono](https://hono.dev).
 
 To run locally:
 ```shell
