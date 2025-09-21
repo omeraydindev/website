@@ -1,8 +1,8 @@
 ---
 title: "A non-exhaustive list of things I find annoying in PHP"
 date: "2024-04-23"
+language: "en"
 categories: 
-  - "english"
   - "php"
 ---
 

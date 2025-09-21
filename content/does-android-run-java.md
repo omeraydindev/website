@@ -1,9 +1,9 @@
 ---
 title: "Does Android run Java? (Spoiler: No) - A deep dive into the Android build process"
 date: "2024-01-17"
+language: "en"
 categories: 
   - "android"
-  - "english"
   - "java"
   - "reverse-engineering"
 ---

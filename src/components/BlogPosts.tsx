@@ -1,4 +1,4 @@
-import { PostWithId } from "../../data.types";
+import type { PostWithId } from "../../data";
 import { css } from "hono/css";
 import { formatBlogDate } from "../utils/date";
 

@@ -1,8 +1,9 @@
 ---
-title: "Kapsamlı Date Rehberi: Frontend, Backend & DB'de Tarih Yönetimi"
+title: "Kapsamlı date rehberi: Frontend, backend & DB'de tarih yönetimi"
 date: "2024-06-18"
+language: "tr"
+translationId: "comprehensive-date-guide"
 categories:
-  - "turkce"
   - "web"
   - "javascript"
   - "typescript"

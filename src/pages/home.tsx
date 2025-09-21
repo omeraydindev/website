@@ -4,7 +4,7 @@ import { $getBlogPosts } from "../../data";
 import { Socials } from "../components/Socials";
 
 export async function Home() {
-  const posts = await $getBlogPosts();
+  const posts = await $getBlogPosts({ language: "en" });
   return (
     <>
       <div class={sTitleContainer}>

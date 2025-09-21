@@ -2,34 +2,56 @@ import { marked } from "marked";
 import { getHighlighter } from "shiki";
 import fm from "front-matter";
 import z from "zod";
-import { PostWithContent, PostWithId } from "./data.types";
-import categories from "./content/_categories.json";
+import categoriesJson from "./content/_categories.json";
 
-const categoriesParsed = z
+const categories = z
   .array(
     z.object({
       id: z.string(),
       title: z.string(),
-    }),
+    })
   )
-  .parse(categories);
+  .parse(categoriesJson);
+
+export type Category = (typeof categories)[number];
 
 const frontMatterSchema = z
   .object({
     title: z.string(),
     date: z.string(),
     categories: z.array(z.string()),
+    language: z.enum(["en", "tr"]).default("en"),
+    translationId: z.string().optional(),
   })
   .transform((data) => ({
-    ...data,
+    title: data.title,
+    date: data.date,
     categories: data.categories.map(
       (category) =>
-        categoriesParsed.find((c) => c.id === category) || {
+        categories.find((c) => c.id === category) || {
           id: category,
           title: category,
-        },
+        }
     ),
+    language: data.language,
+    translationPost: data.translationId
+      ? {
+          id: data.translationId,
+          language: data.language === "en" ? ("tr" as const) : ("en" as const),
+        }
+      : null,
   }));
+
+type PostMetadata = z.infer<typeof frontMatterSchema>;
+
+export interface PostWithId extends PostMetadata {
+  id: string;
+}
+
+export interface PostWithContent extends PostMetadata {
+  content: string;
+  contentRaw: string;
+}
 
 export async function $getBlogPostPaths() {
   const posts = import.meta.glob("/content/*.md");
@@ -38,9 +60,7 @@ export async function $getBlogPostPaths() {
   }));
 }
 
-export async function $getBlogPosts(
-  categoryId?: string,
-): Promise<PostWithId[]> {
+export async function $getBlogPosts(filters?: {categoryId?: string, language?: string}) {
   const postFiles = import.meta.glob("/content/*.md", { query: "?raw" });
   const postPromises = Object.keys(postFiles).map(async (path) => {
     const markdownString = ((await postFiles[path]()) as any).default;
@@ -52,13 +72,18 @@ export async function $getBlogPosts(
     return {
       id,
       ...metadata,
-    };
+    } satisfies PostWithId;
   });
 
   const posts = await Promise.all(postPromises).then((posts) => {
-    if (categoryId) {
-      return posts.filter((post) =>
-        post.categories.some((category) => category.id === categoryId),
+    if (filters?.categoryId) {
+      posts = posts.filter((post) =>
+        post.categories.some((category) => category.id === filters.categoryId),
+      );
+    }
+    if (filters?.language) {
+      posts = posts.filter((post) =>
+        post.language === filters.language,
       );
     }
     return posts;
@@ -67,9 +92,7 @@ export async function $getBlogPosts(
   return posts;
 }
 
-export async function $getBlogPost(
-  id: string,
-): Promise<PostWithContent | null> {
+export async function $getBlogPost(id: string) {
   try {
     const page = await import(/* @vite-ignore */ `/content/${id}.md?raw`);
     const markdownString = page.default;
@@ -78,7 +101,7 @@ export async function $getBlogPost(
     const metadata = frontMatterSchema.parse(attributes);
 
     const content = await highlightCode(parseMarkdown(contentRaw));
-    return { content, contentRaw, ...metadata };
+    return { content, contentRaw, ...metadata } satisfies PostWithContent;
   } catch (e) {
     console.error(e);
     return null;
@@ -86,13 +109,13 @@ export async function $getBlogPost(
 }
 
 export function $getCategoryPaths() {
-  return categoriesParsed.map((category) => ({
+  return categories.map((category) => ({
     id: category.id,
   }));
 }
 
 export function $getCategory(id: string) {
-  return categoriesParsed.find((category) => category.id === id) || null;
+  return categories.find((category) => category.id === id) || null;
 }
 
 function parseMarkdown(markdown: string) {

@@ -4,10 +4,6 @@
     "title": "Android"
   },
   {
-    "id": "english",
-    "title": "English"
-  },
-  {
     "id": "java",
     "title": "Java"
   },
@@ -22,10 +18,6 @@
   {
     "id": "php",
     "title": "PHP"
-  },
-  {
-    "id": "turkce",
-    "title": "Türkçe"
   },
   {
     "id": "typescript",

@@ -5,15 +5,17 @@ export function Socials() {
     {
       title: "Twitter",
       url: "https://twitter.com/omeraydindev",
-      avatarUrl: "https://abs.twimg.com/favicons/twitter.2.ico",
+      avatarUrl: "/static/images/twitter.png",
     },
     {
       title: "GitHub",
       url: "https://github.com/omeraydindev",
+      avatarUrl: "/static/images/github.png",
     },
     {
       title: "LinkedIn",
       url: "https://www.linkedin.com/in/%C3%B6merayd%C4%B1n/",
+      avatarUrl: "/static/images/linkedin.png",
     },
   ];
 
@@ -43,8 +45,6 @@ function Social({
   url: string;
   avatarUrl?: string;
 }) {
-  avatarUrl ??= getAvatarUrl(url);
-
   return (
     <a
       href={url}
@@ -55,13 +55,6 @@ function Social({
       {title}
     </a>
   );
-}
-
-function getAvatarUrl(urlString: string) {
-  const url = new URL(urlString);
-  url.pathname = "";
-  url.search = "";
-  return `https://v1.indieweb-avatar.11ty.dev/${encodeURIComponent(url.toString())}`;
 }
 
 const sSocialLink = css`

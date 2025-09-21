@@ -1,6 +1,6 @@
 import { raw } from "hono/html";
 import { css } from "hono/css";
-import { PostWithContent } from "../../data.types";
+import type { PostWithContent } from "../../data";
 import { formatBlogDate } from "../utils/date";
 
 export async function BlogPost({ post }: { post: PostWithContent }) {
@@ -8,6 +8,35 @@ export async function BlogPost({ post }: { post: PostWithContent }) {
     <>
       <strong class={sPublished}>{formatBlogDate(post.date)}</strong>
       <h1 class={sTitle}>{post.title}</h1>
+      {post.translationPost && (
+        <div class={sLanguageSwitcher}>
+          <span class={sText}>
+            {post.translationPost.language === "en" ? (
+              <>
+                This post is also available in&nbsp;
+                <a
+                  href={`/blog/${post.translationPost.id}`}
+                  class={sLanguageLink}
+                >
+                  English
+                </a>
+                .
+              </>
+            ) : (
+              <>
+                Bu yazının&nbsp;
+                <a
+                  href={`/blog/${post.translationPost.id}`}
+                  class={sLanguageLink}
+                >
+                  Türkçesi
+                </a>
+                &nbsp;de mevcut.
+              </>
+            )}
+          </span>
+        </div>
+      )}
       <article class={sArticle}>{raw(post.content)}</article>
       <div class={sCategories}>
         In{" "}
@@ -131,11 +160,35 @@ const sArticle = css`
     border-radius: 8px;
     margin-bottom: 1.2em;
     overflow-x: auto;
+    background-color: rgba(33, 33, 33, 0.6) !important;
   }
 
   *:not(pre) code {
-    background-color: var(--bg-neutral-color);
+    background-color: rgba(33, 33, 33, 0.6);
     padding: 0.1em 0.4em;
     border-radius: 4px;
+  }
+`;
+
+const sLanguageSwitcher = css`
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: rgba(33, 33, 33, 0.8);
+  border-radius: 8px;
+  border-left: 3px solid var(--link-color);
+`;
+
+const sText = css`
+  color: var(--misc-text-color);
+  font-size: 0.9em;
+`;
+
+const sLanguageLink = css`
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
   }
 `;
