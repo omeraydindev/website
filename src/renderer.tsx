@@ -47,12 +47,10 @@ export const renderer = jsxRenderer(({ children, title, description }) => {
         <link href="/static/reset.css" rel="stylesheet" />
         <link href={versionFile("/static/style.css")} rel="stylesheet" />
         <Style />
-        <script src={versionFile("/static/letter-glitch.js")} defer></script>
         <title>{title} - Ömer Aydın</title>
         {description && <meta name="description" content={description} />}
       </head>
       <body>
-        <div id="letter-glitch-bg" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.25; filter: blur(1px);"></div>
         <Header />
         <Main>{children}</Main>
         <Footer />

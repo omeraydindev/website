@@ -160,11 +160,10 @@ const sArticle = css`
     border-radius: 8px;
     margin-bottom: 1.2em;
     overflow-x: auto;
-    background-color: rgba(33, 33, 33, 0.6) !important;
   }
 
   *:not(pre) code {
-    background-color: rgba(33, 33, 33, 0.6);
+    background-color: var(--bg-neutral-color);
     padding: 0.1em 0.4em;
     border-radius: 4px;
   }
@@ -173,7 +172,7 @@ const sArticle = css`
 const sLanguageSwitcher = css`
   margin-bottom: 2rem;
   padding: 1rem;
-  background-color: rgba(33, 33, 33, 0.8);
+  background-color: var(--bg-neutral-color);
   border-radius: 8px;
   border-left: 3px solid var(--link-color);
 `;
