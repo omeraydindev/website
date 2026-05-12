@@ -10,7 +10,7 @@ export async function Home() {
       <div class={sTitleContainer}>
         <h1 class={sTitle}>Hi! I'm Ömer</h1>
         <p>
-          I am a software engineer based in 🇹🇷. I build, reverse-engineer, and occasionally break stuff.
+          I am a 🇹🇷 software engineer based in 🇩🇪. I build, reverse-engineer, and occasionally break stuff.
         </p>
         <br></br>
         <Socials />
