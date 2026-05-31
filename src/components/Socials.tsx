@@ -10,7 +10,8 @@ export function Socials() {
     {
       title: "GitHub",
       url: "https://github.com/omeraydindev",
-      avatarUrl: "/static/images/github.png",
+      avatarUrl: "/static/images/github-light.png",
+      avatarUrlDark: "/static/images/github-dark.png",
     },
     {
       title: "LinkedIn",
@@ -28,6 +29,7 @@ export function Socials() {
             title={social.title}
             url={social.url}
             avatarUrl={social.avatarUrl}
+            avatarUrlDark={"avatarUrlDark" in social ? social.avatarUrlDark : undefined}
           />
           {i < socials.length - 1 ? ", " : "."}
         </>
@@ -40,17 +42,20 @@ function Social({
   title,
   url,
   avatarUrl,
+  avatarUrlDark,
 }: {
   title: string;
   url: string;
   avatarUrl?: string;
+  avatarUrlDark?: string;
 }) {
+  const darkStyle = avatarUrlDark ? `--url-dark: url(${avatarUrlDark});` : "";
   return (
     <a
       href={url}
       target="_blank"
-      class={sSocialLink}
-      style={`--url: url(${avatarUrl})`}
+      class={avatarUrlDark ? sSocialLinkDark : sSocialLink}
+      style={`--url: url(${avatarUrl}); ${darkStyle}`}
     >
       {title}
     </a>
@@ -69,5 +74,26 @@ const sSocialLink = css`
     border-radius: 3px;
     background-size: contain;
     background-image: var(--url);
+  }
+`;
+
+const sSocialLinkDark = css`
+  &:after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-left: 0.35em;
+    margin-bottom: 3px;
+    border-radius: 3px;
+    background-size: contain;
+    background-image: var(--url);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:after {
+      background-image: var(--url-dark);
+    }
   }
 `;
