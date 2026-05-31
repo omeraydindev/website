@@ -10,6 +10,10 @@ export function Contact() {
         </a>
         .
       </p>
+      <br></br>
+      <p>
+        Also here's my <a href="/cv">CV</a>, if you're into that sort of thing.
+      </p>
     </>
   );
 }
