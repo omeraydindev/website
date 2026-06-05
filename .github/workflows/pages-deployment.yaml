@@ -2,6 +2,8 @@ on:
   push:
     branches:
       - ssgBased
+    paths-ignore:
+      - 'ssh/**'
 
 jobs:
   deploy:

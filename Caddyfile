@@ -1,0 +1,5 @@
+omeraydin.dev {
+    reverse_proxy https://omeraydin.pages.dev {
+        header_up Host omeraydin.pages.dev
+    }
+}

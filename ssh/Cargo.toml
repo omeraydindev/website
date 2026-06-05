@@ -1,0 +1,13 @@
+[package]
+name = "omeraydin-ssh"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ratatui = "0.29"
+crossterm = "0.28"
+russh = "0.61"
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+async-trait = "0.1"
+rand = "0.10"
